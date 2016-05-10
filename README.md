@@ -16,3 +16,6 @@ add the line "export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3
 
 ## Development
 1. Run 'mix phoenix.server' to start the phoenix server
+
+## Guide
+Upto: https://blog.diacode.com/trello-clone-with-phoenix-and-react-pt-4
