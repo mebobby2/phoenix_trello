@@ -19,7 +19,7 @@ defmodule PhoenixTrello.RegistrationController  do
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(PhoenixTrello.RegistrationView, "error.json", changeset: changeset)
+        |> render("error.json", changeset: changeset)
     end
   end
 end
