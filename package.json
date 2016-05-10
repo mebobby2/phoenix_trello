@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/mebobby2/phoenix_trello/issues"
   },
-  "homepage": "https://github.com/mebobby2/phoenix_trello#readme"
+  "homepage": "https://github.com/mebobby2/phoenix_trello#readme",
+  "devDependencies": {
+    "webpack": "^1.13.0"
+  }
 }
