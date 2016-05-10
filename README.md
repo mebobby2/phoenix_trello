@@ -6,7 +6,7 @@ Building a clone of the popular Trello app to get familiar with with Elixir and 
 1. Elixr/Erlang must be installed
 2. Postgres.app must be installed
 3. Need to add bin directory of Postgres.app to PATH so ecto can use psql from the command line.
-add the line "export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin" to ~/.bash_profile
+Add the line "export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin" to ~/.bash_profile
 
 ## Installation
 1. Run 'mix deps.get' to install Mix dependencies
