@@ -11,7 +11,11 @@ Actions.signUp = (data) => {
     .then((data) => {
       localStorage.setItem('phoenixAuthToken', data.jwt);
 
-      setCurrentUser(dispatch, data.user);
+      //setCurrentUser(dispatch, data.user);
+      dispatch({
+        type: Constants.CURRENT_USER,
+        currentUser: data.user,
+      });
 
       dispatch(push('/'));
     })

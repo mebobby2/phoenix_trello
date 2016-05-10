@@ -66,7 +66,7 @@ class RegistrationsNew extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  //errors: state.registration.errors,
+  errors: state.registration.errors,
 });
 
 export default connect(mapStateToProps)(RegistrationsNew);
