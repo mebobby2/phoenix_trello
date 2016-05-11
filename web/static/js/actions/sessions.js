@@ -30,15 +30,6 @@ export function setCurrentUser(dispatch, user) {
         board: msg.board,
       });
   });
-
-
-  //Remove this later after adding on Socket support 
-      dispatch({
-        type: Constants.CURRENT_USER,
-        currentUser: user,
-        socket: socket,
-        channel: channel,
-      });
 };
 
 const Actions = {
