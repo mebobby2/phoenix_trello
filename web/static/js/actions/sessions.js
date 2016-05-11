@@ -32,7 +32,7 @@ export function setCurrentUser(dispatch, user) {
   });
 
 
-  //Remove this later
+  //Remove this later after adding on Socket support 
       dispatch({
         type: Constants.CURRENT_USER,
         currentUser: user,
