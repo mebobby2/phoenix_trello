@@ -1,6 +1,7 @@
 import React from 'react';
 import {push} from 'react-router-redux';
 import { connect }  from 'react-redux';
+import Actions from '../actions/sessions';
 
 class AuthenticatedContainer extends React.Component {
 	componentDidMount() {
