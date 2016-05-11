@@ -9,6 +9,9 @@ export default function reducer(state = initialState, action = {}) {
     case Constants.CURRENT_USER:
       return { ...state, currentUser: action.currentUser };
 
+    case Constants.SESSIONS_ERROR:
+      return { ...state, error: action.error };
+
     default:
       return state;
   }

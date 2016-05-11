@@ -6,21 +6,25 @@ import Actions from '../actions/sessions';
 class AuthenticatedContainer extends React.Component {
 	componentDidMount() {
 		const {dispatch, currentUser} = this.props;
+		const phoenixAuthToken = localStorage.getItem('phoenixAuthToken');
 
-		if (localStorage.getItem('phoenixAuthToken')) {
+		if (phoenixAuthToken && !currentUser) {
 			dispatch(Actions.currentUser());
-		} else {
-			dispatch(push('/sign_up'));
+		} else if (!phoenixAuthToken){
+			dispatch(push('/sign_in'));
 		}
 	}
 
 	render() {
-		return <div id="authentication_container" className="application-container">
+		const { currentUser, dispatch } = this.props;
 
+    	if (!currentUser) return false;
+
+		return <div className="application-container">
         <div className='main-container'>
           {this.props.children}
         </div>
-      </div>
+    </div>
 	}
 }
 
