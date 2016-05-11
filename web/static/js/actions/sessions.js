@@ -30,6 +30,15 @@ export function setCurrentUser(dispatch, user) {
         board: msg.board,
       });
   });
+
+
+  //Remove this later
+      dispatch({
+        type: Constants.CURRENT_USER,
+        currentUser: user,
+        socket: socket,
+        channel: channel,
+      });
 };
 
 const Actions = {

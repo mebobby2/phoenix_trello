@@ -2,6 +2,7 @@ import React from 'react';
 import {push} from 'react-router-redux';
 import { connect }  from 'react-redux';
 import Actions from '../actions/sessions';
+import Header from '../layouts/header';
 
 class AuthenticatedContainer extends React.Component {
 	componentDidMount() {
@@ -18,9 +19,13 @@ class AuthenticatedContainer extends React.Component {
 	render() {
 		const { currentUser, dispatch } = this.props;
 
-    	if (!currentUser) return false;
+    if (!currentUser) return false;
 
 		return <div className="application-container">
+			<Header
+        currentUser={currentUser}
+        dispatch={dispatch}/>
+
         <div className='main-container'>
           {this.props.children}
         </div>
