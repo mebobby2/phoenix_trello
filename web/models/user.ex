@@ -1,6 +1,8 @@
 defmodule PhoenixTrello.User do
   use PhoenixTrello.Web, :model
 
+  alias PhoenixTrello.{Board, UserBoard}
+
   @derive {Poison.Encoder, only: [:id, :first_name, :last_name, :email]}
 
   schema "users" do
@@ -10,15 +12,15 @@ defmodule PhoenixTrello.User do
     field :encrypted_password, :string
     field :password, :string, virtual: true
 
-    has_many :owned_boards, PhoenixTrello.Board
+    has_many :owned_boards, Board
+    has_many :user_boards, UserBoard
+    has_many :boards, through: [:user_boards, :board]
 
     timestamps
   end
 
   @required_fields ~w(first_name last_name email password)
   @optional_fields ~w(encrypted_password)
-
-  @derive {Poison.Encoder, only: [:id, :first_name, :last_name, :email]}
 
   @doc """
   Creates a changeset based on the `model` and `params`.
@@ -41,7 +43,7 @@ defmodule PhoenixTrello.User do
       %Ecto.Changeset{valid?: true, changes: %{password: password}} ->
         put_change(current_changeset, :encrypted_password, Comeonin.Bcrypt.hashpwsalt(password))
       _ ->
-      current_changeset
+        current_changeset
     end
   end
 end

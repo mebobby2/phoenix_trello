@@ -1,40 +1,37 @@
-import React from 'react';
-import {push} from 'react-router-redux';
-import { connect }  from 'react-redux';
-import Actions from '../actions/sessions';
-import Header from '../layouts/header';
+import React            from 'react';
+import { connect }      from 'react-redux';
+import BoardsActions    from '../actions/boards';
+import Header           from '../layouts/header';
 
 class AuthenticatedContainer extends React.Component {
-	componentDidMount() {
-		const {dispatch, currentUser} = this.props;
-		const phoenixAuthToken = localStorage.getItem('phoenixAuthToken');
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(BoardsActions.fetchBoards());
+  }
 
-		if (phoenixAuthToken && !currentUser) {
-			dispatch(Actions.currentUser());
-		} else if (!phoenixAuthToken){
-			dispatch(push('/sign_in'));
-		}
-	}
-
-	render() {
-		const { currentUser, dispatch } = this.props;
+  render() {
+    const { currentUser, dispatch, boards, socket, currentBoard } = this.props;
 
     if (!currentUser) return false;
 
-		return <div className="application-container">
-			<Header
-        currentUser={currentUser}
-        dispatch={dispatch}/>
+    return (
+      <div id="authentication_container" className="application-container">
+        <Header/>
 
         <div className='main-container'>
           {this.props.children}
         </div>
-    </div>
-	}
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser,
+  socket: state.session.socket,
+  channel: state.session.channel,
+  boards: state.boards,
+  currentBoard: state.currentBoard,
 });
 
 export default connect(mapStateToProps)(AuthenticatedContainer);

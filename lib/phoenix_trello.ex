@@ -10,9 +10,10 @@ defmodule PhoenixTrello do
       # Start the endpoint when the application starts
       supervisor(PhoenixTrello.Endpoint, []),
       # Start the Ecto repository
-      supervisor(PhoenixTrello.Repo, []),
+      worker(PhoenixTrello.Repo, []),
       # Here you could define other workers and supervisors as children
       # worker(PhoenixTrello.Worker, [arg1, arg2, arg3]),
+      supervisor(PhoenixTrello.BoardChannel.Supervisor, []),
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

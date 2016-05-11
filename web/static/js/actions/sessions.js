@@ -62,6 +62,8 @@ const Actions = {
 
   currentUser: () => {
     return dispatch => {
+      const authToken = localStorage.getItem('phoenixAuthToken');
+
       httpGet('/api/v1/current_user')
       .then(function (data) {
         setCurrentUser(dispatch, data);

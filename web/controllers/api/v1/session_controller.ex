@@ -35,5 +35,4 @@ defmodule PhoenixTrello.SessionController do
     |> put_status(:forbidden)
     |> render(PhoenixTrello.SessionView, "forbidden.json", error: "Not Authenticated")
   end
-
 end

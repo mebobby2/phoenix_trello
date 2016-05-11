@@ -1,7 +1,7 @@
 {
   "name": "phoenix_trello",
   "version": "1.0.0",
-  "description": "To start your Phoenix app:",
+  "description": "Trello tribute done in Elixir and Phoenix.",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -9,16 +9,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mebobby2/phoenix_trello.git"
-  },
-  "author": "",
+  "author": "Ricardo García Vega",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mebobby2/phoenix_trello/issues"
+  "private": true,
+  "engines": {
+    "node": "5.3.0",
+    "npm": "3.5.x"
   },
-  "homepage": "https://github.com/mebobby2/phoenix_trello#readme",
   "devDependencies": {
     "babel-core": "^6.3.26",
     "babel-loader": "^6.2.0",
@@ -33,7 +30,7 @@
     "node-sass": "^3.4.2",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
-    "webpack": "^1.13.0"
+    "webpack": "^1.12.11"
   },
   "dependencies": {
     "bourbon": "^4.2.6",

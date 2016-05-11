@@ -33,7 +33,7 @@ defmodule PhoenixTrello.Endpoint do
   plug Plug.Session,
     store: :cookie,
     key: "_phoenix_trello_key",
-    signing_salt: "BUyosV8E"
+    signing_salt: "utLqshqa"
 
   plug PhoenixTrello.Router
 end

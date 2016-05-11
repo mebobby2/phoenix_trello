@@ -9,7 +9,7 @@ use Mix.Config
 config :phoenix_trello, PhoenixTrello.Endpoint,
   url: [host: "localhost"],
   root: Path.dirname(__DIR__),
-  secret_key_base: "+HWbKxuBivbFQS/gN128aV1lJluTmh514UDUUgTU6vkb2ucYPP7lPIGvgNzWXvNC",
+  secret_key_base: "hWbd3QwLuaWKwJY5qYOKLGSBboxjnW46c4TzBAa+cMODz26RokgHQIJo6Nej3DGr",
   render_errors: [accepts: ~w(html json)],
   pubsub: [name: PhoenixTrello.PubSub,
            adapter: Phoenix.PubSub.PG2]
@@ -28,9 +28,12 @@ config :phoenix, :generators,
   migration: true,
   binary_id: false
 
+# Configure guardian
 config :guardian, Guardian,
   issuer: "PhoenixTrello",
   ttl: { 3, :days },
   verify_issuer: true,
-  secret_key: "sdsdfsdfdsf233123",
   serializer: PhoenixTrello.GuardianSerializer
+
+# Start Hound for PhantomJs
+config :hound, driver: "chrome_driver"

@@ -11,12 +11,10 @@ defmodule PhoenixTrello.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
-
     plug Guardian.Plug.VerifyHeader
     plug Guardian.Plug.LoadResource
   end
 
-  # Other scopes may use custom stacks.
   scope "/api", PhoenixTrello do
     pipe_through :api
 
@@ -28,7 +26,9 @@ defmodule PhoenixTrello.Router do
 
       get "/current_user", CurrentUserController, :show
 
-      resources "boards", BoardController, only: [:index, :create]
+      resources "boards", BoardController, only: [:index, :create] do
+        resources "cards", CardController, only: [:show]
+      end
     end
   end
 

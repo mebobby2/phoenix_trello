@@ -21,11 +21,12 @@ defmodule PhoenixTrello.ConnCase do
       use Phoenix.ConnTest
 
       alias PhoenixTrello.Repo
-      import Ecto
-      import Ecto.Changeset
-      import Ecto.Query, only: [from: 1, from: 2]
+      import Ecto.Model, except: [build: 2]
+      import Ecto.Query, only: [from: 2]
 
       import PhoenixTrello.Router.Helpers
+
+      import PhoenixTrello.Factory
 
       # The default endpoint for testing
       @endpoint PhoenixTrello.Endpoint
