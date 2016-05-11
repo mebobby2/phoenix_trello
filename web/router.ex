@@ -16,12 +16,6 @@ defmodule PhoenixTrello.Router do
     plug Guardian.Plug.LoadResource
   end
 
-  scope "/", PhoenixTrello do
-    pipe_through :browser # Use the default browser stack
-
-    get "*path", PageController, :index
-  end
-
   # Other scopes may use custom stacks.
   scope "/api", PhoenixTrello do
     pipe_through :api
@@ -34,5 +28,11 @@ defmodule PhoenixTrello.Router do
 
       get "/current_user", CurrentUserController, :show
     end
+  end
+
+  scope "/", PhoenixTrello do
+    pipe_through :browser # Use the default browser stack
+
+    get "*path", PageController, :index
   end
 end
