@@ -1,6 +1,6 @@
 # PhoenixTrello
 
-Building a clone of the popular Trello app to get familiar with with Elixir and Phoenix.
+Building a clone of the popular Trello app to get familiar with with Elixir and Phoenix. We use React/Redux on the front end.
 
 ## Prerequisites
 1. Elixr/Erlang must be installed
